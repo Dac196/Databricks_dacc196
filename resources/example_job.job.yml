@@ -12,7 +12,10 @@ resources:
           job_cluster_key: main_cluster
       job_clusters:
         - job_cluster_key: main_cluster
-          serverless: true
+          new_cluster:
+            spark_version: "13.3.x-scala2.12"
+            node_type_id: "Serverless"
+            num_workers: 1
       schedule:
         quartz_cron_expression: "0 0 9 * * ?"
         timezone_id: America/Bogota
