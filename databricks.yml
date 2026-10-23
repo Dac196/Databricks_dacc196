@@ -28,10 +28,10 @@ targets:
 
   # Ambiente de producción
   # mode: production usa los nombres de recursos tal cual
-  prod:
+  prd:
     mode: production
     workspace:
-      root_path: /Workspace/Users/dacc196@gmail.com/.bundle/${bundle.name}/prod
+      root_path: /Workspace/Shared/databricks_dacc196/prod
     variables:
       catalog: workspace
       schema: prod
