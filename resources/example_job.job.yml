@@ -1,6 +1,3 @@
-# Job de ejemplo - ejecuta un notebook en el ambiente correspondiente
-# Las variables ${var.catalog} y ${var.schema} se resuelven según el target (dev o prod)
-
 resources:
   jobs:
     example_job:
@@ -12,12 +9,10 @@ resources:
             base_parameters:
               catalog: ${var.catalog}
               schema: ${var.schema}
+          job_cluster_key: main_cluster
       job_clusters:
         - job_cluster_key: main_cluster
-          new_cluster:
-            spark_version: "15.4.x-scala2.12"
-            node_type_id: "i3.xlarge"
-            num_workers: 1
+          serverless: true
       schedule:
         quartz_cron_expression: "0 0 9 * * ?"
         timezone_id: America/Bogota
