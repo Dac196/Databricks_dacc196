@@ -1,0 +1,10 @@
+# Esquema como recurso del bundle
+# Se crea automáticamente al desplegar (deploy)
+# ${var.schema} se reemplaza según el target: 'dev' o 'prod'
+
+resources:
+  schemas:
+    target_schema:
+      catalog_name: ${var.catalog}
+      name: ${var.schema}
+      comment: "Esquema del ambiente ${var.schema}"
