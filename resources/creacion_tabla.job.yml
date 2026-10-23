@@ -1,0 +1,32 @@
+resources:
+  jobs:
+    creacion_tabla:
+      name: creacion tabla
+      tasks:
+        - task_key: creacion-tabla
+          disabled: false
+          email_notifications: {}
+          notebook_task:
+            notebook_path: ../src/example_notebook.ipynb
+            source: WORKSPACE
+          run_if: ALL_SUCCESS
+          timeout_seconds: 0
+          webhook_notifications: {}
+      parameters:
+        - name: catalog
+          default: prd
+        - name: schema
+          default: prd
+      email_notifications:
+        no_alert_for_skipped_runs: false
+      max_concurrent_runs: 1
+      performance_target: PERFORMANCE_OPTIMIZED
+      queue:
+        enabled: true
+      timeout_seconds: 0
+      trigger:
+        pause_status: UNPAUSED
+        periodic:
+          interval: 1
+          unit: DAYS
+      webhook_notifications: {}
