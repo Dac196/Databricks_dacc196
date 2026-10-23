@@ -23,7 +23,7 @@ targets:
     default: true
     mode: development
     variables:
-      catalog: workspace
+      catalog: dev_prb
       schema: dev
 
   # Ambiente de producción
