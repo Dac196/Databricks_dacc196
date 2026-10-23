@@ -33,5 +33,5 @@ targets:
     workspace:
       root_path: /Workspace/Shared/databricks_dacc196/prod
     variables:
-      catalog: workspace
-      schema: prod
+      catalog: prd
+      schema: prd
