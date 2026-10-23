@@ -1,0 +1,37 @@
+# Declarative Automation Bundle (DABs) - Proyecto Databricks
+# Ambientes: dev (pruebas) y prod (producción)
+# En el tier gratuito usamos esquemas separados dentro del catálogo workspace
+
+bundle:
+  name: databricks_dacc196
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: "Catálogo de Unity Catalog"
+    default: workspace
+  schema:
+    description: "Esquema de Unity Catalog"
+    default: dev
+
+targets:
+  # Ambiente de desarrollo/pruebas
+  # mode: development prefija los recursos con tu nombre de usuario
+  dev:
+    default: true
+    mode: development
+    variables:
+      catalog: workspace
+      schema: dev
+
+  # Ambiente de producción
+  # mode: production usa los nombres de recursos tal cual
+  prod:
+    mode: production
+    workspace:
+      root_path: /Workspace/Users/dacc196@gmail.com/.bundle/${bundle.name}/prod
+    variables:
+      catalog: workspace
+      schema: prod
